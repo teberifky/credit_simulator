@@ -2,20 +2,24 @@ package com.credit.simulator;
 
 import java.math.BigDecimal;
 import java.text.NumberFormat;
+import java.time.Clock;
 import java.util.Locale;
 import java.util.Scanner;
 
+import com.credit.simulator.exception.ValidationException;
 import com.credit.simulator.model.LoanCalculation;
 import com.credit.simulator.model.LoanRequest;
 import com.credit.simulator.model.VehicleCondition;
 import com.credit.simulator.model.VehicleType;
 import com.credit.simulator.model.YearlyInstallment;
 import com.credit.simulator.service.InstallmentCalculator;
+import com.credit.simulator.validator.LoanValidator;
 
 public class Application {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        LoanValidator validator = new LoanValidator(Clock.systemDefaultZone());
 
         try {
             System.out.println("======================================");
@@ -49,6 +53,8 @@ public class Application {
                     downPayment
             );
 
+            validator.validate(request);
+
             InstallmentCalculator calculator = new InstallmentCalculator();
 
             LoanCalculation result = calculator.calculate(request);
@@ -79,6 +85,8 @@ public class Application {
 
         } catch (IllegalArgumentException e) {
             System.out.println("Input tidak valid: " + e.getMessage());
+        } catch (ValidationException e) {
+            System.out.println(e.getMessage());
         } finally {
             scanner.close();
         }

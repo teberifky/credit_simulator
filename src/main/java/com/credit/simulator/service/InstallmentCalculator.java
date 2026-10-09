@@ -12,6 +12,7 @@ import com.credit.simulator.model.YearlyInstallment;
 
 public class InstallmentCalculator {
     private static final int MONTHS_PER_YEAR = 12; 
+    
     private static final BigDecimal HUNDRED = BigDecimal.valueOf(100); 
     private static final BigDecimal EVEN_YEAR_STEP = new BigDecimal("0.1"); 
     private static final BigDecimal ODD_YEAR_STEP = new BigDecimal("0.5"); 
