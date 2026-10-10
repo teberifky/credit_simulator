@@ -1,4 +1,4 @@
-# Credit Simulator
+# Credit Simulator (Java)
 
 Aplikasi untuk menghitung **cicilan kredit kendaraan**.
 
@@ -6,10 +6,10 @@ Aplikasi untuk menghitung **cicilan kredit kendaraan**.
 
 - JDK 17+ dan Maven 3.8+
 
-## Cara menjalankan (step by step)
+## Step by Step
 
 ```bash
-git clone <url-repo> && cd credit_simulator
+git clone https://github.com/teberifky/credit_simulator && cd credit_simulator
 
 # 1. Tanpa file input
 ./credit_simulator            # atau: bin/credit_simulator
@@ -18,9 +18,7 @@ git clone <url-repo> && cd credit_simulator
 ./credit_simulator file_inputs.txt   # atau: bin/credit_simulator file_inputs.txt
 ```
 
-Run pertama akan otomatis `mvn package` (jar tidak di-commit). Build manual: `mvn package`.
-
-### Menu / command
+### Command
 
 Ketik `show` kapan saja untuk melihat semua command:
 
@@ -63,3 +61,9 @@ exit
 ```
 
 Jika file tidak diakhiri `exit`, aplikasi lanjut membaca dari keyboard.
+
+## Unit test
+
+```bash
+mvn test
+```
