@@ -1,0 +1,11 @@
+show
+calculate
+mobil
+bekas
+2022
+100000000
+6
+25000000
+save mobilebekas2022
+sheets
+exit

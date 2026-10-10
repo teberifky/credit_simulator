@@ -23,6 +23,6 @@ public enum VehicleCondition {
                 return condition;
             }
         }
-        throw new ValidationException("Kondisi kendaraan harus 'Bekas' atau 'Baru'.");
+        throw new ValidationException("Kondisi kendaraan harus 'Baru' atau 'Bekas'.");
     }
 }

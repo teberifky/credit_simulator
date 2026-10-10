@@ -1,0 +1,25 @@
+#!/bin/sh
+set -eu
+
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+JAR="$ROOT/target/credit_simulator.jar"
+
+needs_build() {
+  [ ! -f "$JAR" ] || [ -n "$(find "$ROOT/src/main" "$ROOT/pom.xml" -newer "$JAR" 2>/dev/null | head -n 1)" ]
+}
+
+if needs_build; then
+  if ! command -v mvn >/dev/null 2>&1; then
+    echo "[ERROR] Maven (mvn) dan JDK 17+ dibutuhkan untuk build pertama kali." >&2
+    exit 1
+  fi
+  echo "Building credit_simulator (mvn package)..." >&2
+  (cd "$ROOT" && mvn -q -B -DskipTests package) >&2
+fi
+
+if ! command -v java >/dev/null 2>&1; then
+  echo "[ERROR] Java (JDK/JRE 17+) tidak ditemukan di PATH." >&2
+  exit 1
+fi
+
+exec java -jar "$JAR" "$@"

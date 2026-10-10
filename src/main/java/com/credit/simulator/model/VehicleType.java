@@ -31,6 +31,6 @@ public enum VehicleType {
                 return type;
             }
         }
-        throw new ValidationException("Jenis kendaraan harus 'Motor' atau 'Mobil'.");
+        throw new ValidationException("Jenis kendaraan harus 'Mobil' atau 'Motor'.");
     }
 }

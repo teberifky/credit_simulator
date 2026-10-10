@@ -9,7 +9,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.credit.simulator</groupId>
-    <artifactId>credit-simulator</artifactId>
+    <artifactId>credit_simulator</artifactId>
     <version>1.0.0</version>
 
     <properties>
@@ -29,8 +29,8 @@
     </dependencies>
 
     <build>
+        <finalName>credit_simulator</finalName>
         <plugins>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -42,7 +42,18 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
             </plugin>
-
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.1</version>
+                <configuration>
+                <archive>
+                    <manifest>
+                    <mainClass>com.credit.simulator.Application</mainClass>
+                    </manifest>
+                </archive>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
