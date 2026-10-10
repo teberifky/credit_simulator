@@ -49,14 +49,16 @@ jaringan maupun parser JSON sama sekali.
 `file_inputs.txt` berisi command dan jawaban, satu per baris:
 
 ```
+show
 calculate
 mobil
 bekas
-2020
+2022
 100000000
-3
+6
 25000000
-save contoh1
+save mobilebekas2022
+sheets
 exit
 ```
 

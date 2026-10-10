@@ -76,7 +76,7 @@ public class ConsoleView {
         out.println("--------------------------------------"); 
         
         for (YearlyInstallment y : result.installments()) {
-            System.out.printf(
+            out.printf(
                 "Tahun %d : Rp. %,.2f/bln , Suku Bunga : %s%%%n",
                 y.year(),
                 y.monthlyInstallment(),
